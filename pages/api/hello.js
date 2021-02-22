@@ -1,6 +1,17 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+const login = async(req, res) => {
+    const { username } = req.body;
+    if (!username) {
+        res.send({
+            message: "Error",
+            status: 400,
+            data: "Username should not be empty.",
+        });
+    } else {
+        res.send({
+            message: "Success",
+            status: 200,
+        });
+    }
+};
 
-export default (req, res) => {
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
-}
+export default login;
